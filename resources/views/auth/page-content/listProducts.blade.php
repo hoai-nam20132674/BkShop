@@ -1,17 +1,17 @@
-@extends('frontEndAdmin.layout.default')
+@extends('auth.layout.default')
 @section('css')
-	<link rel="stylesheet" href="{{asset('admin/vendor/bootstrap4/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/themify-icons/themify-icons.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/font-awesome/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/animate.css/animate.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/waves/waves.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/switchery/dist/switchery.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/DataTables/css/dataTables.bootstrap4.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/DataTables/Responsive/css/responsive.bootstrap4.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/DataTables/Buttons/css/buttons.dataTables.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/DataTables/Buttons/css/buttons.bootstrap4.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/ionicons/css/ionicons.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/bootstrap4/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/themify-icons/themify-icons.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/font-awesome/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/animate.css/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/waves/waves.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/switchery/dist/switchery.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/DataTables/css/dataTables.bootstrap4.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/DataTables/Responsive/css/responsive.bootstrap4.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/DataTables/Buttons/css/buttons.dataTables.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/DataTables/Buttons/css/buttons.bootstrap4.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/ionicons/css/ionicons.min.css')}}">
 	
 	
 @endsection()
@@ -21,7 +21,7 @@
 		<div class="container-fluid">
 			<h4>Sản phẩm</h4>
 			<ol class="breadcrumb no-bg mb-1">
-				<li class="breadcrumb-item"><a href="{{URL::route('index')}}">Trang chủ</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('authIndex')}}">Trang chủ</a></li>
 				<li class="breadcrumb-item active">Danh sách sản phẩm</li>
 			</ol>
 			<div class="box box-block bg-white overflow-x">
@@ -45,23 +45,23 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach ($products as $product)
+						
 						<tr>
-							<td>{{$product -> name}}</td>
-							<td>{!!number_format($product->price)!!} đ</td>
-							<td><a href="{{url('/'.$product["url"])}}" target="_blank">{{$product -> url}}</a></td>
-							@if($product->display ==0)
+							<td>Nokia 8800</td>
+							<td>10.000.000 đ</td>
+							<td><a href="" target="_blank">link</a></td>
+							@if(1)
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="enable{{$product->id}}()" value="{{$product->id}}" class="enable_product" id="enable{{$product->id}}" type="checkbox">
+											<input onclick="enable1()" value="1" class="enable_product" id="enable1" type="checkbox">
 										</label>
 									</div>
 								</td>
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="disable{{$product->id}}()" class="disable_product" value="{{$product->id}}" id="disable{{$product->id}}" type="checkbox" checked>
+											<input onclick="disable1()" class="disable_product" value="1" id="disable1" type="checkbox" checked>
 										</label>
 									</div>
 								</td>
@@ -69,42 +69,42 @@
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="enable{{$product->id}}()" class="enable_product" value="{{$product->id}}" id="enable{{$product->id}}" type="checkbox" checked>
+											<input onclick="enable1()" class="enable_product" value="1" id="enable1" type="checkbox" checked>
 										</label>
 									</div>
 								</td>
 								<td class="text-center">
 									<div class="checkbox">
 										<label>
-											<input onclick="disable{{$product->id}}()" value="{{$product->id}}" class="disable_product" id="disable{{$product->id}}" type="checkbox">
+											<input onclick="disable1()" value="1" class="disable_product" id="disable1" type="checkbox">
 										</label>
 									</div>
 								</td>
 							@endif
 							<script type="text/javascript">
-								function enable{{$product->id}}() {
-								    document.getElementById("enable{{$product->id}}").checked = true;
-								    document.getElementById("disable{{$product->id}}").checked = false;
+								function enable1() {
+								    document.getElementById("enable1").checked = true;
+								    document.getElementById("disable1").checked = false;
 								}
 
-								function disable{{$product->id}}() {
-								    document.getElementById("disable{{$product->id}}").checked = true;
-								    document.getElementById("enable{{$product->id}}").checked = false;
+								function disable1() {
+								    document.getElementById("disable1").checked = true;
+								    document.getElementById("enable1").checked = false;
 								}
 							</script>
-							@if($product->id==1)
+							@if(1)
 							<td class="text-center">
-								<a style="pointer-events: none;cursor: default;" onclick="return confirmDelete('Bạn có chắc muốn xóa sản phẩm này không')" href="{{ URL::route('deleteProduct',$product->id)}}" title="Xóa sản phẩm"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
-								<a style="pointer-events: none;cursor: default;" href="{{ URL::route('editProduct',[$product->id,$product->categorie_id])}}" title="Sửa danh mục"><i class="ion-compose" style="width: 100%; font-size: 18px;"></i></a>
+								<a style="pointer-events: none;cursor: default;" onclick="return confirmDelete('Bạn có chắc muốn xóa sản phẩm này không')" href="" title="Xóa sản phẩm"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
+								<a style="pointer-events: none;cursor: default;" href="" title="Sửa danh mục"><i class="ion-compose" style="width: 100%; font-size: 18px;"></i></a>
 							</td>
 							@else
 							<td class="text-center">
-								<a onclick="return confirmDelete('Bạn có chắc muốn xóa sản phẩm này không')" href="{{ URL::route('deleteProduct',$product->id)}}" title="Xóa sản phẩm"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
-								<a href="{{ URL::route('editProduct',[$product->id,$product->categorie_id])}}" title="Sửa danh mục"><i class="ion-compose" style="width: 100%; font-size: 18px;"></i></a>
+								<a onclick="return confirmDelete('Bạn có chắc muốn xóa sản phẩm này không')" href="" title="Xóa sản phẩm"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
+								<a href="" title="Sửa danh mục"><i class="ion-compose" style="width: 100%; font-size: 18px;"></i></a>
 							</td>
 							@endif
 						</tr>
-						@endforeach
+						
 					</tbody>
 				</table>
 			</div>
@@ -114,33 +114,33 @@
 @endsection()
 @section('js')
 
-	<script type="text/javascript" src="{{asset('admin/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/tether/js/tether.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/mwheelIntent.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/waves/waves.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/switchery/dist/switchery.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/js/jquery.dataTables.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/Responsive/js/dataTables.responsive.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/Responsive/js/responsive.bootstrap4.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/Buttons/js/dataTables.buttons.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/Buttons/js/buttons.bootstrap4.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/JSZip/jszip.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/pdfmake/build/pdfmake.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/pdfmake/build/vfs_fonts.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/Buttons/js/buttons.html5.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/Buttons/js/buttons.print.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/vendor/DataTables/Buttons/js/buttons.colVis.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/tether/js/tether.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/mwheelIntent.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/waves/waves.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/switchery/dist/switchery.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/js/jquery.dataTables.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/js/dataTables.bootstrap4.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/Responsive/js/dataTables.responsive.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/Responsive/js/responsive.bootstrap4.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/Buttons/js/dataTables.buttons.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/Buttons/js/buttons.bootstrap4.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/JSZip/jszip.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/pdfmake/build/pdfmake.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/pdfmake/build/vfs_fonts.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/Buttons/js/buttons.html5.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/Buttons/js/buttons.print.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/vendor/DataTables/Buttons/js/buttons.colVis.min.js')}}"></script>
 
 	<!-- Neptune JS -->
-	<script type="text/javascript" src="{{asset('admin/js/app.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/js/tables-datatable.js')}}"></script>
-	<script type="text/javascript" src="{{asset('admin/js/display_product.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/js/app.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/js/demo.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/js/tables-datatable.js')}}"></script>
+	<script type="text/javascript" src="{{asset('auth/js/display_product.js')}}"></script>
 	
 @endsection()

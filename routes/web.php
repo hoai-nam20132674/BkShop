@@ -22,8 +22,10 @@ Route::get('/admin',['as'=>'admin','uses'=>'Auth\LoginController@getLogin']);
 Route::get('/login',['as'=>'login','uses'=>'Auth\LoginController@login']);
 Route::get('/logout',['as'=>'logout','uses'=>'Auth\LoginController@logout']);
 Route::post('/postLogin',['as'=>'postLogin','uses'=>'Auth\LoginController@postLogin']);
+Route::get('getListUsersResponse',['as'=>'getListUsersResponse','uses'=>'Auth\AdminController@getListUsersResponse']);
 Route::group(['prefix'=>'auth','middleware'=>'auth'], function(){
 	Route::get('trang-chu',['as'=>'authIndex','uses'=>'Auth\AdminController@index']);
 	Route::get('them-san-pham',['as'=>'addProduct','uses'=>'Auth\AdminController@addProduct']);
-
+	Route::get('them-danh-muc',['as'=>'addCategorie','uses'=>'Auth\AdminController@addProduct']);
+	Route::get('danh-sach-san-pham',['as'=>'listProducts','uses'=>'Auth\AdminController@listProducts']);
 });
