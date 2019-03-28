@@ -1,21 +1,21 @@
-@extends('frontEndAdmin.layout.default')
+@extends('auth.layout.default')
 @section('css')
-	<link rel="stylesheet" href="{{asset('admin/vendor/bootstrap4/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/themify-icons/themify-icons.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/font-awesome/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/animate.css/animate.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/waves/waves.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/switchery/dist/switchery.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/css/upload-image.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/bootstrap4/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/themify-icons/themify-icons.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/font-awesome/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/animate.css/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/waves/waves.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/switchery/dist/switchery.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/css/upload-image.css')}}">
 @endsection()
 @section('content')
 	<div class="content-area py-1">
 		<div class="container-fluid">
 			<h4>Sửa sản phẩm</h4>
 			<ol class="breadcrumb no-bg mb-1">
-				<li class="breadcrumb-item"><a href="{{URL::route('index')}}">Trang chủ</a></li>
-				<li class="breadcrumb-item"><a href="{{URL::route('getListProducts')}}">Danh sách sản phẩm</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('authIndex')}}">Trang chủ</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('listProducts')}}">Danh sách sản phẩm</a></li>
 				<li class="breadcrumb-item active">Sửa sản phẩm</li>
 			</ol>
 			<div class="box box-block bg-white">
@@ -29,93 +29,93 @@
 		    	</div>
 		    	@endif
 				<h5>Form controls</h5>
-				@foreach($product as $pr)
-				<form action="{{URL::route('postEditProduct',$pr->id)}}" method="POST" enctype="multipart/form-data">
+				
+				<form action="{{URL::route('postEditProduct')}}" method="POST" enctype="multipart/form-data">
 					<input type="hidden" name="_token" value="{{ csrf_token()}}">
 					<div class="row">
 						<div class="col-md-9">
 							<div class="row">
 
 								<div class="col-md-3">
-									<a href="http://slux.vn/" target="_blank"><button class="btn btn-primary" style="width: 100%;">http://slux.vn/</button></a>
+									<a href="http://slux.vn/" target="_blank"><button class="btn btn-primary" style="width: 100%;">http://bkshop.vn/</button></a>
 								</div>
 								<div class="col-md-9">
 									<div class="form-group">	
-										<input type="text" class="form-control" name="url" placeholder="Nhập Url" value="{{$pr->url}}">
+										<input type="text" class="form-control" name="url" placeholder="Nhập Url" value="cuong.vn">
 									</div>
 								</div>
 							</div>
 							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Tên sản phẩm</label>
-								<input type="text" class="form-control" name="name" placeholder="Nhập tiêu đề danh mục" value="{{$pr->name}}">
+								<input type="text" class="form-control" name="name" placeholder="Nhập tiêu đề danh mục" value="nokia 8800">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Giá</label>
-								<input type="text" class="form-control" name="price" placeholder="Nhập tiêu đề danh mục" value="{{$pr->price}}">
+								<input type="text" class="form-control" name="price" placeholder="Nhập tiêu đề danh mục" value="10.000.000">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Tiêu đề</label>
-								<input type="text" class="form-control" name="title" placeholder="Nhập tiêu đề danh mục" value="{{$pr->title}}">
+								<input type="text" class="form-control" name="title" placeholder="Nhập tiêu đề danh mục" value="title">
 							</div>
 							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Seo keywords</label>
-								<input type="text" class="form-control" name="seo_keyword" placeholder="Keywords Seo" value="{{$pr->seo_keyword}}">
+								<input type="text" class="form-control" name="seo_keyword" placeholder="Keywords Seo" value="seo_keyword">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Seo description</label>
-								<input type="text" class="form-control" name="seo_description" placeholder="Description Seo" value="{{$pr->seo_description}}">
+								<input type="text" class="form-control" name="seo_description" placeholder="Description Seo" value="seo_description">
 							</div>
 							<div class="form-group">
 								<label for="exampleTextarea">Thông tin khuyến mãi</label>
-								<textarea class="form-control" name="sale" rows="3">{{$pr->sale}}</textarea>
+								<textarea class="form-control" name="sale" rows="3">content</textarea>
 								<script type="text/javascript">
 							      var editor = CKEDITOR.replace('sale',{
 							       language:'vi',
-							       filebrowserImageBrowseUrl : '../../../admin/ckfinder/ckfinder.html?type=Images',
-							       filebrowserFlashBrowseUrl : '../../../admin/ckfinder/ckfinder.html?type=Flash',
-							       filebrowserImageUploadUrl : '../../../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-							       filebrowserFlashUploadUrl : '../../../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+							       filebrowserImageBrowseUrl : '../../../auth/ckfinder/ckfinder.html?type=Images',
+							       filebrowserFlashBrowseUrl : '../../../auth/ckfinder/ckfinder.html?type=Flash',
+							       filebrowserImageUploadUrl : '../../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+							       filebrowserFlashUploadUrl : '../../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 							       });
 							     </script>﻿
 							</div>
 							<div class="form-group">
 								<label for="exampleTextarea">Thông tin sản phẩm</label>
-								<textarea class="form-control" name="ttsp" rows="3">{{$pr->ttsp}}</textarea>
+								<textarea class="form-control" name="ttsp" rows="3">thông tin sản phẩm</textarea>
 								<script type="text/javascript">
 							      var editor = CKEDITOR.replace('ttsp',{
 							       language:'vi',
-							       filebrowserImageBrowseUrl : '../../../admin/ckfinder/ckfinder.html?type=Images',
-							       filebrowserFlashBrowseUrl : '../../../admin/ckfinder/ckfinder.html?type=Flash',
-							       filebrowserImageUploadUrl : '../../../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-							       filebrowserFlashUploadUrl : '../../../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+							       filebrowserImageBrowseUrl : '../../../auth/ckfinder/ckfinder.html?type=Images',
+							       filebrowserFlashBrowseUrl : '../../../auth/ckfinder/ckfinder.html?type=Flash',
+							       filebrowserImageUploadUrl : '../../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+							       filebrowserFlashUploadUrl : '../../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 							       });
 							     </script>﻿
 							</div>
 							<div class="form-group">
 								<label for="exampleTextarea">Thông số kỹ thuật</label>
-								<textarea class="form-control" name="tskt" rows="3">{{$pr->tskt}}</textarea>
+								<textarea class="form-control" name="tskt" rows="3">thông tin kỹ thuật</textarea>
 								<script type="text/javascript">
 							      var editor = CKEDITOR.replace('tskt',{
 							       language:'vi',
-							       filebrowserImageBrowseUrl : '../admin/ckfinder/ckfinder.html?type=Images',
-							       filebrowserFlashBrowseUrl : '../admin/ckfinder/ckfinder.html?type=Flash',
-							       filebrowserImageUploadUrl : '../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-							       filebrowserFlashUploadUrl : '../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+							       filebrowserImageBrowseUrl : '../auth/ckfinder/ckfinder.html?type=Images',
+							       filebrowserFlashBrowseUrl : '../auth/ckfinder/ckfinder.html?type=Flash',
+							       filebrowserImageUploadUrl : '../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+							       filebrowserFlashUploadUrl : '../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 							       });
 							     </script>﻿
 							</div>
 							<div class="form-group">
 								<label for="exampleTextarea">Mô tả</label>
-								<textarea class="form-control" name="content" rows="3">{{$pr->description}}</textarea>
+								<textarea class="form-control" name="content" rows="3">mô tả</textarea>
 								<script type="text/javascript">
 							      var editor = CKEDITOR.replace('content',{
 							       language:'vi',
-							       filebrowserImageBrowseUrl : '../admin/ckfinder/ckfinder.html?type=Images',
-							       filebrowserFlashBrowseUrl : '../admin/ckfinder/ckfinder.html?type=Flash',
-							       filebrowserImageUploadUrl : '../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-							       filebrowserFlashUploadUrl : '../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+							       filebrowserImageBrowseUrl : '../auth/ckfinder/ckfinder.html?type=Images',
+							       filebrowserFlashBrowseUrl : '../auth/ckfinder/ckfinder.html?type=Flash',
+							       filebrowserImageUploadUrl : '../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+							       filebrowserFlashUploadUrl : '../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 							       });
 							     </script>﻿
 							</div>
@@ -123,14 +123,16 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<select class="form-control" name="categorie_id">
-									<option value="{{$categorie->id}}">{{$categorie->name}}</option>
-									@foreach($categories as $cate)
-									<option value="{{$cate->id}}">{{$cate->name}}</option>
-									@endforeach
+									<option value="id">danh mục cha</option>
+									
+									<option value="id">danh mục cha 1</option>
+									<option value="id">danh mục cha 2</option>
+									<option value="id">danh mục cha 3</option>
+									
 								</select>
 							</div>
 							<div class="checkbox">
-								@if($pr->display ==0)
+								@if(0)
 									<label>
 										<input type="radio"  name="display" value="1" >Hiển thị
 									</label>
@@ -152,26 +154,26 @@
 									<div class="col-md-12">
 										<?php 
 											$i=0;
-											$product_image = App\Products_Images::where('product_id',$pr->id)->get();
+											// $product_image = App\Products_Images::where('product_id',$pr->id)->get();
 										?>
 										
-										@foreach($product_image as $prim)									
+																		
 											@if($i==0 || $i ==2)
 												<div class="image-product{{$i}}" style="width: 50%; float: left;" >
-													<img class="img-thumbnail" width="100%" src="{{url('/uploads/images/products/'.$prim["url_image"])}}">
+													<img class="img-thumbnail" width="100%" src="">
 												</div>
 												<?php
 													$i++;
 												?>
 											@else
 												<div class="image-product{{$i}}" style="width: 50%;float: right;" >
-													<img class="img-thumbnail" width="100%" src="{{url('/uploads/images/products/'.$prim["url_image"])}}">
+													<img class="img-thumbnail" width="100%" src="">
 												</div>
 												<?php
 													$i++;
 												?>
 											@endif
-										@endforeach
+										
 									</div>
 								</div>
 							</div>
@@ -213,7 +215,7 @@
 
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
-				@endforeach
+				
 			</div>
 			
 		</div>
@@ -221,19 +223,19 @@
 @endsection()
 @section('js')
 	<!-- Vendor JS -->
-		<script type="text/javascript" src="{{asset('admin/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/tether/js/tether.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/mwheelIntent.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/waves/waves.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/switchery/dist/switchery.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/tether/js/tether.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/mwheelIntent.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/waves/waves.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/switchery/dist/switchery.min.js')}}"></script>
 
 		<!-- Neptune JS -->
-		<script type="text/javascript" src="{{asset('admin/js/app.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/js/upload-image.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/app.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/demo.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/upload-image.js')}}"></script>
 @endsection

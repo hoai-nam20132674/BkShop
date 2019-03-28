@@ -1,12 +1,12 @@
-@extends('frontEndAdmin.layout.default')
+@extends('auth.layout.default')
 @section('css')
-	<link rel="stylesheet" href="{{asset('admin/vendor/bootstrap4/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/themify-icons/themify-icons.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/font-awesome/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/animate.css/animate.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/waves/waves.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/switchery/dist/switchery.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/bootstrap4/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/themify-icons/themify-icons.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/font-awesome/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/animate.css/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/waves/waves.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/switchery/dist/switchery.min.css')}}">
 @endsection()
 @section('content')
 	<div class="content-area py-1">
@@ -14,8 +14,8 @@
 
 			<h4>Sửa danh mục</h4>
 			<ol class="breadcrumb no-bg mb-1">
-				<li class="breadcrumb-item"><a href="{{URL::route('index')}}">Trang chủ</a></li>
-				<li class="breadcrumb-item"><a href="{{URL::route('getListCategories')}}">Danh mục</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('authIndex')}}">Trang chủ</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('listCategories')}}">Danh mục</a></li>
 				<li class="breadcrumb-item active">Sửa danh mục</li>
 			</ol>
 			<div class="box box-block bg-white">
@@ -28,8 +28,8 @@
 		    		</ul>
 		    	</div>
 		    	@endif
-				@foreach($categorie as $cate)
-					<form action="{{ URL::route('postEditCategorie',$cate->id)}}" method="POST">
+				
+					<form action="{{ URL::route('postEditCategorie')}}" method="POST">
 						<form action="" method="POST">
 						<input type="hidden" name="_token" value="{{ csrf_token()}}">
 						<div class="row">
@@ -37,42 +37,42 @@
 								<div class="row">
 
 									<div class="col-md-3">
-										<a href="http://slux.vn/" target="_blank"><button class="btn btn-primary" style="width: 100%;">http://slux.vn/</button></a>
+										<a href="http://bkshop.vn/" target="_blank"><button class="btn btn-primary" style="width: 100%;">http://bkshop.vn/</button></a>
 									</div>
 									<div class="col-md-9">
 										<div class="form-group">	
-											<input type="text" class="form-control" name="url" placeholder="Nhập Url" value="{{$cate->url}}">
+											<input type="text" class="form-control" name="url" placeholder="Nhập Url" value="cuong.vn">
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">Tên danh mục</label>
-									<input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục" value="{{$cate->name}}">
+									<input type="text" class="form-control" name="name" placeholder="Nhập tên danh mục" value="tên danh mục">
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">Tiêu đề</label>
-									<input type="text" class="form-control" name="title" placeholder="Nhập tiêu đề danh mục" value="{{$cate->title}}">
+									<input type="text" class="form-control" name="title" placeholder="Nhập tiêu đề danh mục" value="title">
 								</div>
 								
 								<div class="form-group">
 									<label for="exampleInputEmail1">Keywords</label>
-									<input type="text" class="form-control" name="seo_keyword" placeholder="Keywords Seo" value="{{$cate->seo_keyword}}">
+									<input type="text" class="form-control" name="seo_keyword" placeholder="Keywords Seo" value="seo_keyword">
 
 								</div>
 								<div class="form-group">
 									<label for="exampleInputEmail1">Description</label>
-									<input type="text" class="form-control" name="seo_description" placeholder="Description Seo" value="{{$cate->seo_description}}">
+									<input type="text" class="form-control" name="seo_description" placeholder="Description Seo" value="seo_description">
 								</div>
 								<div class="form-group">
 									<label for="exampleTextarea">Nội dung</label>
-									<textarea class="form-control" name="content" rows="10" >{{$cate->content}}</textarea>
+									<textarea class="form-control" name="content" rows="10" >content</textarea>
 									<script type="text/javascript">
 								      var editor = CKEDITOR.replace('content',{
 								       language:'vi',
-								       filebrowserImageBrowseUrl : '../../../admin/ckfinder/ckfinder.html?type=Images',
-								       filebrowserFlashBrowseUrl : '../../../admin/ckfinder/ckfinder.html?type=Flash',
-								       filebrowserImageUploadUrl : '../../../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-								       filebrowserFlashUploadUrl : '../../../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+								       filebrowserImageBrowseUrl : '../../../auth/ckfinder/ckfinder.html?type=Images',
+								       filebrowserFlashBrowseUrl : '../../../auth/ckfinder/ckfinder.html?type=Flash',
+								       filebrowserImageUploadUrl : '../../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+								       filebrowserFlashUploadUrl : '../../../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 								       });
 								     </script>﻿
 								</div>
@@ -81,25 +81,15 @@
 							<div class="col-md-3">
 								<div class="form-group">
 									<select class="form-control" name="parent_id">
-										@if($cate->parent_id ==0){
+										
 					                    <option value="0">Thư mục gốc</option>
-					                    @foreach($categories as $cates)
-										<option value="{{$cates->id}}">{{$cates->name}}</option>
-										@endforeach
-					                    }
-					                    @else
-					                    @foreach($parent as $pr)
-					                    <option value="{{$pr->id}}">{{$pr->name}}</option>
-					                    @endforeach
-										@foreach($categories as $cates)
-										<option value="{{$cates->id}}">{{$cates->name}}</option>
-										@endforeach
-										<option value="0">Thư mục gốc</option>
-										@endif
+					                    
+										<option value="id">danh mục</option>
+										
 									</select>
 								</div>
 								<fieldset class="form-group">
-									@if($cate->type ==0)
+									@if(0)
 										<label>
 											<input type="radio" name="type" value="0" checked>
 											Tin Tức
@@ -112,7 +102,7 @@
 										<input type="radio" name="type" value="2">
 											List tin tức
 										</label>
-									@elseif($cate->type ==2)
+									@elseif(2)
 										<label>
 											<input type="radio" name="type" id="optionsRadios1" value="0">
 											Tin Tức
@@ -143,7 +133,7 @@
 									@endif
 								</fieldset>
 								<div class="checkbox">
-									@if($cate->display ==0)
+									@if(0)
 										<label>
 											<input type="radio"  name="display" value="1" >Hiển thị
 										</label>
@@ -164,7 +154,7 @@
 
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</form>
-				@endforeach
+				
 			</div>
 			
 		</div>
@@ -172,18 +162,18 @@
 @endsection()
 @section('js')
 	<!-- Vendor JS -->
-		<script type="text/javascript" src="{{asset('admin/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/tether/js/tether.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/mwheelIntent.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/waves/waves.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/switchery/dist/switchery.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/tether/js/tether.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/mwheelIntent.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/waves/waves.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/switchery/dist/switchery.min.js')}}"></script>
 
 		<!-- Neptune JS -->
-		<script type="text/javascript" src="{{asset('admin/js/app.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/app.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/demo.js')}}"></script>
 @endsection

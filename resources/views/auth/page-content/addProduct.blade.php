@@ -15,7 +15,7 @@
 			<h4>Thêm mới sản phẩm</h4>
 			<ol class="breadcrumb no-bg mb-1">
 				<li class="breadcrumb-item"><a href="{{URL::route('authIndex')}}">Trang chủ</a></li>
-				<li class="breadcrumb-item"><a href="">Danh sách sản phẩm</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('listProducts')}}">Danh sách sản phẩm</a></li>
 				<li class="breadcrumb-item active">Thêm sản phẩm</li>
 			</ol>
 			<div class="box box-block bg-white">

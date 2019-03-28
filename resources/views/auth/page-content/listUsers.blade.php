@@ -12,17 +12,14 @@
 	<link rel="stylesheet" href="{{asset('auth/vendor/DataTables/Buttons/css/buttons.dataTables.min.css')}}">
 	<link rel="stylesheet" href="{{asset('auth/vendor/DataTables/Buttons/css/buttons.bootstrap4.min.css')}}">
 	<link rel="stylesheet" href="{{asset('auth/vendor/ionicons/css/ionicons.min.css')}}">
-	
-	
-@endsection()
+@endsection
 @section('content')
-	
 	<div class="content-area py-1">
 		<div class="container-fluid">
-			<h4>Sản phẩm</h4>
+			<h4>Danh sách thành viên</h4>
 			<ol class="breadcrumb no-bg mb-1">
 				<li class="breadcrumb-item"><a href="{{URL::route('authIndex')}}">Trang chủ</a></li>
-				<li class="breadcrumb-item active">Danh sách sản phẩm</li>
+				<li class="breadcrumb-item active">Danh sách thành viên</li>
 			</ol>
 			<div class="box box-block bg-white overflow-x">
 				<table class="table table-striped table-bordered dataTable" id="table-1">
@@ -33,76 +30,29 @@
 		            @endif
 					<thead>
 						<tr>
-							<th>Tên sản phẩm</th>
-							<th>Giá</th>
-							<th>Link sản phẩm</th>
-							<th class="text-center">Enable</th>
-							<th class="text-center">Disible</th>
+							<th>STT</th>
+							<th>Họ tên</th>
+							<th>Email</th>
 							<th class="text-center" style="padding: 0px; background: green;">
-								<a href="{{URL::route('addProduct')}}" title="Thêm sản phẩm" style="color: green;"><i class="ion-android-add" style=" font-size:30px; color:#fff;"></i></a>
+								<a href="{{URL::route('addUser')}}" title="Thêm thành viên" style="color: green;"><i class="ion-android-add" style=" font-size:30px;color:#fff;"></i></a>
 							</th>
 
 						</tr>
 					</thead>
 					<tbody>
+						<?php 
+							$i=1;
+						?>
+						
 						
 						<tr>
-							<td>Nokia 8800</td>
-							<td>10.000.000 đ</td>
-							<td><a href="" target="_blank">link</a></td>
-							@if(1)
-								<td class="text-center">
-									<div class="checkbox">
-										<label>
-											<input onclick="enable1()" value="1" class="enable_product" id="enable1" type="checkbox">
-										</label>
-									</div>
-								</td>
-								<td class="text-center">
-									<div class="checkbox">
-										<label>
-											<input onclick="disable1()" class="disable_product" value="1" id="disable1" type="checkbox" checked>
-										</label>
-									</div>
-								</td>
-							@else
-								<td class="text-center">
-									<div class="checkbox">
-										<label>
-											<input onclick="enable1()" class="enable_product" value="1" id="enable1" type="checkbox" checked>
-										</label>
-									</div>
-								</td>
-								<td class="text-center">
-									<div class="checkbox">
-										<label>
-											<input onclick="disable1()" value="1" class="disable_product" id="disable1" type="checkbox">
-										</label>
-									</div>
-								</td>
-							@endif
-							<script type="text/javascript">
-								function enable1() {
-								    document.getElementById("enable1").checked = true;
-								    document.getElementById("disable1").checked = false;
-								}
-
-								function disable1() {
-								    document.getElementById("disable1").checked = true;
-								    document.getElementById("enable1").checked = false;
-								}
-							</script>
-							@if(0)
+							<td >{{$i++}}</td>	
+							<td>Nguyễn Hoài Nam</td>
+							<td>namnguyen20132674@gmail.com</td>
 							<td class="text-center">
-								<a style="pointer-events: none;cursor: default;" onclick="return confirmDelete('Bạn có chắc muốn xóa sản phẩm này không')" href="" title="Xóa sản phẩm"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
-								<a style="pointer-events: none;cursor: default;" href="" title="Sửa danh mục"><i class="ion-compose" style="width: 100%; font-size: 18px;"></i></a>
+								<a onclick="return confirmDelete('Bạn có chắc muốn xóa dịch vụ này không')" title="Xóa thành viên"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
+								<a href="{{ URL::route('editUser')}}" title="Sửa thành viên"><i class="ion-compose" style="width: 100%; font-size: 18px;"></i></a>
 							</td>
-							@else
-							<td class="text-center">
-								<a onclick="return confirmDelete('Bạn có chắc muốn xóa sản phẩm này không')" href="" title="Xóa sản phẩm"><i class="ion-trash-a" style="width: 100%; font-size: 18px; color: red; margin-right: 5px;"></i></a>
-								<a href="{{URL::route('editProduct')}}" title="Sửa danh mục"><i class="ion-compose" style="width: 100%; font-size: 18px;"></i></a>
-							</td>
-							@endif
 						</tr>
 						
 					</tbody>
@@ -110,10 +60,8 @@
 			</div>
 		</div>
 	</div>
-	
-@endsection()
+@endsection
 @section('js')
-
 	<script type="text/javascript" src="{{asset('auth/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('auth/vendor/tether/js/tether.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('auth/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
@@ -141,6 +89,4 @@
 	<script type="text/javascript" src="{{asset('auth/js/app.js')}}"></script>
 	<script type="text/javascript" src="{{asset('auth/js/demo.js')}}"></script>
 	<script type="text/javascript" src="{{asset('auth/js/tables-datatable.js')}}"></script>
-	<script type="text/javascript" src="{{asset('auth/js/display_product.js')}}"></script>
-	
-@endsection()
+@endsection

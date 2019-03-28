@@ -22,6 +22,7 @@ class AdminController extends Controller
     public function addCategorie() {
     	return view('auth.page-content.addCategorie');
     }
+    // -------------------
     public function listProducts() {
     	return view('auth.page-content.listProducts');
     }
@@ -30,6 +31,35 @@ class AdminController extends Controller
     }
     public function listUsers() {
     	return view('auth.page-content.listUsers');
+    }
+    // --------------------
+    public function editUser() {
+        return view('auth.page-content.editUser');
+    }
+    public function editProduct() {
+        return view('auth.page-content.editProduct');
+    }
+    public function editCategorie() {
+        return view('auth.page-content.editCategorie');
+    }
+    // ----------------------
+    public function postAddUser(){
+
+    }
+    public function postAddProduct(){
+
+    }
+    public function postAddCategorie(){
+
+    }
+    public function postEditUser(){
+
+    }
+    public function postEditProduct(){
+
+    }
+    public function postEditCategorie(){
+
     }
 
 
