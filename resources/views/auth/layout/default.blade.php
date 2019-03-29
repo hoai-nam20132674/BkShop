@@ -56,14 +56,14 @@
 						</li>
 						<li class="menu-title">Components</li>
 						<li class="with-sub">
-							<a href="" class="waves-effect  waves-light">
+							<a href="{{URL::route('listCategories')}}" class="waves-effect  waves-light">
 								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
 								<span class="s-icon"><i class="ti-gallery"></i></span>
 								<span class="s-text">Danh mục</span>
 							</a>
 						</li>
 						<li class="with-sub">
-							<a href="" class="waves-effect  waves-light">
+							<a href="{{URL::route('listProducts')}}" class="waves-effect  waves-light">
 								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
 								<span class="s-icon"><i class="ti-paint-bucket"></i></span>
 								<span class="tag tag-success">50</span>
@@ -85,8 +85,8 @@
 								<span class="s-text">Khách hàng</span>
 							</a>
 							<ul>
-								<li><a href="">Khách hàng sửa chữa</a></li>
-								<li><a href="">Khách hàng đăng ký tư vấn</a></li>
+								<li><a href="">Khách hàng mua</a></li>
+								<li><a href="">Khách hàng đăng ký hợp tác</a></li>
 							</ul>
 						</li>
 						<li class="with-sub">
@@ -104,13 +104,13 @@
 								<span class="s-text">Dịch vụ</span>
 							</a>
 							<ul>
-								<li><a href="">Sửa chữa nokia 8800</a></li>
-								<li><a href="">Sửa chữa Vertu</a></li>
+								<li><a href="">Mua bán</a></li>
+								<li><a href="">Quảng cáo</a></li>
 							</ul>
 						</li>
 						
 						<li class="with-sub">
-							<a href="" class="waves-effect  waves-light">
+							<a href="{{URL::route('listUsers')}}" class="waves-effect  waves-light">
 								<span class="s-caret"><i class="fa fa-angle-down"></i></span>
 								<span class="s-icon"><i class="ti-menu-alt"></i></span>
 								<span class="s-text">User</span>
@@ -165,8 +165,8 @@
 			<div class="site-header">
 				<nav class="navbar navbar-light">
 					<div class="navbar-left">
-						<a class="navbar-brand" href="/admin/index">
-							<div class="logo"><img src="{{asset('uploads/images/logo/logo-slux.png')}}" width="100%"></div>
+						<a class="navbar-brand" href="{{URL::route('authIndex')}}">
+							<div class="logo"><img src="{{asset('uploads/images/logo/logo-bkshop.png')}}" width="100%"></div>
 						</a>
 						<div class="toggle-button dark sidebar-toggle-first float-xs-left hidden-md-up">
 							<span class="hamburger"></span>
