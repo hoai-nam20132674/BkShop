@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Blog;
+use App\Http\Requests\addBlogRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\Response;
 
@@ -22,6 +24,9 @@ class AdminController extends Controller
     public function addCategorie() {
     	return view('auth.page-content.addCategorie');
     }
+    public function addBlog() {
+        return view('auth.page-content.addBlog');
+    }
     // -------------------
     public function listProducts() {
     	return view('auth.page-content.listProducts');
@@ -31,6 +36,9 @@ class AdminController extends Controller
     }
     public function listUsers() {
     	return view('auth.page-content.listUsers');
+    }
+    public function listBlogs() {
+        return view('auth.page-content.listBlogs');
     }
     // --------------------
     public function editUser() {
@@ -42,6 +50,9 @@ class AdminController extends Controller
     public function editCategorie() {
         return view('auth.page-content.editCategorie');
     }
+    public function editBlog() {
+        return view('auth.page-content.editBlog');
+    }
     // ----------------------
     public function postAddUser(){
 
@@ -52,6 +63,11 @@ class AdminController extends Controller
     public function postAddCategorie(){
 
     }
+    public function postAddBlog(addBlogRequest $request){
+        $blog = new Blog;
+        $blog->addBlog($request);
+        echo "thêm tin tức thành công";
+    }
     public function postEditUser(){
 
     }
@@ -59,6 +75,9 @@ class AdminController extends Controller
 
     }
     public function postEditCategorie(){
+
+    }
+    public function postEditBlog(){
 
     }
 

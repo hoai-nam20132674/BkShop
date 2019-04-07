@@ -32,7 +32,7 @@ $config['authentication'] = function () {
 /*============================ License Key ============================================*/
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_licenseKey
 
-$config['licenseName'] = 'slux.vn';
+$config['licenseName'] = 'localhost:8000';
 $config['licenseKey']  = 'ET7T8K851P6D12PV8E7E2GEH3BNLU';
 
 /*============================ CKFinder Internal Directory ============================*/
@@ -66,7 +66,7 @@ $config['images'] = array(
 $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
-    'baseUrl'      => 'http://slux.vn/uploads/',
+    'baseUrl'      => 'http://localhost:8000/uploads/',
 //  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,

@@ -15,6 +15,9 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('value');
+            $table->integer('properties_type_id')->unsigned();
+            $table->foreign('properties_type_id')->references('id')->on('properties_type')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -1,21 +1,21 @@
-@extends('frontEndAdmin.layout.default')
+@extends('auth.layout.default')
 @section('css')
-	<link rel="stylesheet" href="{{asset('admin/vendor/bootstrap4/css/bootstrap.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/themify-icons/themify-icons.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/font-awesome/css/font-awesome.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/animate.css/animate.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/waves/waves.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/vendor/switchery/dist/switchery.min.css')}}">
-	<link rel="stylesheet" href="{{asset('admin/css/upload-image.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/bootstrap4/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/themify-icons/themify-icons.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/font-awesome/css/font-awesome.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/animate.css/animate.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/waves/waves.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/vendor/switchery/dist/switchery.min.css')}}">
+	<link rel="stylesheet" href="{{asset('auth/css/upload-image.css')}}">
 @endsection()
 @section('content')
 	<div class="content-area py-1">
 		<div class="container-fluid">
 			<h4>Thêm mới tin tức</h4>
 			<ol class="breadcrumb no-bg mb-1">
-				<li class="breadcrumb-item"><a href="{{URL::route('index')}}">Trang chủ</a></li>
-				<li class="breadcrumb-item"><a href="{{URL::route('getListBlogs')}}">Danh sách tin tức</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('authIndex')}}">Trang chủ</a></li>
+				<li class="breadcrumb-item"><a href="{{URL::route('listBlogs')}}">Danh sách tin tức</a></li>
 				<li class="breadcrumb-item active">Thêm tin tức</li>
 			</ol>
 			<div class="box box-block bg-white">
@@ -35,9 +35,9 @@
 							<div class="row">
 
 								<div class="col-md-3">
-									<a href="http://slux.vn/" target="_blank">
+									<a href="http://bkshop.vn/" target="_blank">
 										<div style="background: #0275d8;" class="text-center">
-											<span style="color: #fff; font-size:20px; ">http://slux.vn/</span>
+											<span style="color: #fff; font-size:20px; ">http://bkshop.vn/</span>
 										</div>
 									</a>
 								</div>
@@ -66,10 +66,10 @@
 								<script type="text/javascript">
 							      var editor = CKEDITOR.replace('content',{
 							       language:'vi',
-							       filebrowserImageBrowseUrl : '../admin/ckfinder/ckfinder.html?type=Images',
-							       filebrowserFlashBrowseUrl : '../admin/ckfinder/ckfinder.html?type=Flash',
-							       filebrowserImageUploadUrl : '../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-							       filebrowserFlashUploadUrl : '../admin/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
+							       filebrowserImageBrowseUrl : '../auth/ckfinder/ckfinder.html?type=Images',
+							       filebrowserFlashBrowseUrl : '../auth/ckfinder/ckfinder.html?type=Flash',
+							       filebrowserImageUploadUrl : '../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+							       filebrowserFlashUploadUrl : '../auth/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash',
 							       });
 							     </script>﻿
 							</div>
@@ -77,9 +77,10 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<select class="form-control" name="categorie_id">
-									@foreach($categories as $cate)
-									<option value="{{$cate->id}}">{{$cate->name}}</option>
-									@endforeach
+									
+									<option value="id">Categorie</option>
+									<option value="id">Categorie2</option>
+									
 								</select>
 							</div>
 							<div class="checkbox">
@@ -118,19 +119,19 @@
 @endsection()
 @section('js')
 	<!-- Vendor JS -->
-		<script type="text/javascript" src="{{asset('admin/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/tether/js/tether.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/mwheelIntent.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/waves/waves.min.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/vendor/switchery/dist/switchery.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jquery/jquery-1.12.3.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/tether/js/tether.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/bootstrap4/js/bootstrap.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/detectmobilebrowser/detectmobilebrowser.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.mousewheel.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/mwheelIntent.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jscrollpane/jquery.jscrollpane.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/jquery-fullscreen-plugin/jquery.fullscreen-min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/waves/waves.min.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/vendor/switchery/dist/switchery.min.js')}}"></script>
 
 		<!-- Neptune JS -->
-		<script type="text/javascript" src="{{asset('admin/js/app.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/js/demo.js')}}"></script>
-		<script type="text/javascript" src="{{asset('admin/js/upload-image.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/app.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/demo.js')}}"></script>
+		<script type="text/javascript" src="{{asset('auth/js/upload-image.js')}}"></script>
 @endsection

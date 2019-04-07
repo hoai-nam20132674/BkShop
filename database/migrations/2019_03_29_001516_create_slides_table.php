@@ -15,6 +15,9 @@ class CreateSlidesTable extends Migration
     {
         Schema::create('slides', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('systems_id')->unsigned();
+            $table->foreign('systems_id')->references('id')->on('systems')->onDelete('cascade');
+            $table->string('url_image');
             $table->timestamps();
         });
     }

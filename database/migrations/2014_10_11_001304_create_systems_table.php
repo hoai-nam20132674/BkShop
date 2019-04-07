@@ -15,6 +15,21 @@ class CreateSystemsTable extends Migration
     {
         Schema::create('systems', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('logo');
+            $table->string('shortcut_logo');
+            $table->string('share_image');
+            $table->string('title');
+            $table->string('seo_keyword');
+            $table->longText('seo_description');
+            $table->string('facebook');
+            $table->string('instagram');
+            $table->string('zalo');
+            $table->string('youtube');
+            $table->string('website');
+            $table->string('address');
+            $table->string('phone');
+            $table->string('email');
+            $table->longText('script');
             $table->timestamps();
         });
     }

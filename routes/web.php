@@ -28,23 +28,28 @@ Route::group(['prefix'=>'auth','middleware'=>'auth'], function(){
 	Route::get('them-tai-khoan',['as'=>'addUser','uses'=>'Auth\AdminController@addUser']);
 	Route::get('them-san-pham',['as'=>'addProduct','uses'=>'Auth\AdminController@addProduct']);
 	Route::get('them-danh-muc',['as'=>'addCategorie','uses'=>'Auth\AdminController@addCategorie']);
+	Route::get('them-tin-tuc',['as'=>'addBlog','uses'=>'Auth\AdminController@addBlog']);
 
 	Route::get('danh-sach-tai-khoan',['as'=>'listUsers','uses'=>'Auth\AdminController@listUsers']);
 	Route::get('danh-sach-san-pham',['as'=>'listProducts','uses'=>'Auth\AdminController@listProducts']);
 	Route::get('danh-sach-danh-muc',['as'=>'listCategories','uses'=>'Auth\AdminController@listCategories']);
+	Route::get('danh-sach-tin-tuc',['as'=>'listBlogs','uses'=>'Auth\AdminController@listBlogs']);
 
 	Route::get('sua-tai-khoan',['as'=>'editUser','uses'=>'Auth\AdminController@editUser']);
 	Route::get('sua-san-pham',['as'=>'editProduct','uses'=>'Auth\AdminController@editProduct']);
 	Route::get('sua-danh-muc',['as'=>'editCategorie','uses'=>'Auth\AdminController@editCategorie']);
+	Route::get('sua-tin-tuc',['as'=>'editBlog','uses'=>'Auth\AdminController@editBlog']);
 
 	Route::get('xoa-tai-khoan',['as'=>'deleteUser','uses'=>'Auth\AdminController@deleteUser']);
 	Route::get('xoa-san-pham',['as'=>'deleteProduct','uses'=>'Auth\AdminController@deleteProduct']);
-	Route::get('xoa-danh-muc',['as'=>'deleteCategorie','uses'=>'Auth\AdminController@deleteCategorie']);
+	Route::get('xoa-tin-tuc',['as'=>'deleteBlog','uses'=>'Auth\AdminController@deleteBlog']);
 
 	Route::post('postAddUser',['as'=>'postAddUser','uses'=>'Auth\AdminController@postAddUser']);
 	Route::post('postAddProduct',['as'=>'postAddProduct','uses'=>'Auth\AdminController@postAddProduct']);
 	Route::post('postAddCategorie',['as'=>'postAddCategorie','uses'=>'Auth\AdminController@postAddCategorie']);
+	Route::post('postAddBlog',['as'=>'postAddBlog','uses'=>'Auth\AdminController@postAddBlog']);
 	Route::post('postEditUser',['as'=>'postEditUser','uses'=>'Auth\AdminController@postEditUser']);
 	Route::post('postEditProduct',['as'=>'postEditProduct','uses'=>'Auth\AdminController@postEditProduct']);
 	Route::post('postEditCategorie',['as'=>'postEditCategorie','uses'=>'Auth\AdminController@postEditCategorie']);
+	Route::post('postEditBlog',['as'=>'postEditBlog','uses'=>'Auth\AdminController@postEditBlog']);
 });
