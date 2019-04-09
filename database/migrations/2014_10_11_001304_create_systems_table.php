@@ -20,7 +20,7 @@ class CreateSystemsTable extends Migration
             $table->string('share_image');
             $table->string('title');
             $table->string('seo_keyword');
-            $table->longText('seo_description');
+            $table->string('seo_description');
             $table->string('facebook');
             $table->string('instagram');
             $table->string('zalo');

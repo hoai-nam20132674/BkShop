@@ -33,8 +33,9 @@
 		            @endif
 					<thead>
 						<tr>
+							<th width="8%">Hình ảnh</th>
 							<th>Tên sản phẩm</th>
-							<th>Giá</th>
+							<th width="10%">Giá</th>
 							<th>Link sản phẩm</th>
 							<th class="text-center">Enable</th>
 							<th class="text-center">Disible</th>
@@ -47,7 +48,8 @@
 					<tbody>
 						
 						<tr>
-							<td>Nokia 8800</td>
+							<td ><img src="https://cuong.com.vn/uploads/products/thumbs/final-vertu-s-rose-golg-kim-cuong.jpg" width="100%"></td>
+							<td>Tên sản phẩm</td>
 							<td>10.000.000 đ</td>
 							<td><a href="" target="_blank">link</a></td>
 							@if(1)

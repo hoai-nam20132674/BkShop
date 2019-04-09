@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('categories_id')->unsigned();
             $table->foreign('categories_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('url');
+            $table->longText('content');
             $table->string('seo_description');
             $table->string('seo_keyword');
             $table->string('title');
